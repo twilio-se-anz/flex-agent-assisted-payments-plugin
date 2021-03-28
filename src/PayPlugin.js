@@ -27,6 +27,13 @@ export default class PayPlugin extends FlexPlugin {
         //loadCSS("http://localhost:3000/styles.css");
 
         const options = { sortOrder: -1 };
+
+        
+        // flex.TaskCanvasTabs.Content
+        //     .add(<Tab uniqueName= "payment-tab" key="payment-tab">
+        //             <PaymentAgentView key="payment-component" runtimeUrl={config.RUNTIME_URL} />
+        //         </Tab>, {});
+
         flex.AgentDesktopView.Panel2.Content.add(
             <PaymentAgentView key="payment-component" runtimeUrl={config.RUNTIME_URL} />,
             options

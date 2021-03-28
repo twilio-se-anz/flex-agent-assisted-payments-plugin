@@ -20,14 +20,18 @@ class PaymentAgentView extends React.Component {
             aapStatus: [],
             captureField: undefined,
             paymentMethod: "credit-card",
-            isDisplayed: false
+            isDisplayed: false,
+            showPaymentForm: true
         };
 
         this.idempotencyKey = 1;
 
         window.Twilio.Flex.Actions.addListener(
             "afterAcceptTask", 
-            (payload) => { this.resetPay(); }
+            (payload) => { 
+                this.resetPay(); 
+                window.Twilio.Flex.Actions.invokeAction("SetComponentState", { name: "AgentTaskCanvasTabs", state: { selectedTabName: "call" } });
+            }
         );
 
         window.Twilio.Flex.Actions.addListener(
@@ -35,16 +39,23 @@ class PaymentAgentView extends React.Component {
             (payload) => { this.resetPay(); }
         );
 
-        window.Twilio.Flex.CallCanvasActions.Content.add(
-            <button
-                onClick={this.displayPaymentForm}
-                className="Twilio-IconButton Twilio-CallCanvas-Dialpad css-w77p7x"
-                key="pay-btn"
-            >
-                PAY
-            </button>,
-            { sortOrder: -1 }
-        );
+
+        if(window.Twilio.Flex.CallCanvasActions.Content.fragments.length > 0 && 
+            window.Twilio.Flex.CallCanvasActions.Content.fragments[0].props.children.key && 
+            window.Twilio.Flex.CallCanvasActions.Content.fragments[0].props.children.key === 'pay-btn') {
+            console.log(`Found Key !!!!! ${window.Twilio.Flex.CallCanvasActions.Content.fragments[0].props.children.key} ignoring`);
+        } else {
+            window.Twilio.Flex.CallCanvasActions.Content.add(
+                <button
+                    onClick={this.displayPaymentForm}
+                    className="Twilio-IconButton Twilio-CallCanvas-Dialpad css-w77p7x"
+                    key="pay-btn"
+                >
+                    PAY
+                </button>,
+                { sortOrder: -1 }
+            );
+        }
     }
 
     resetPay = () => {
@@ -54,12 +65,13 @@ class PaymentAgentView extends React.Component {
             captureField: undefined,
             paymentMethod: "credit-card",
             isDisplayed: false,
-            showPaymentForm: false,
+            // showPaymentForm: false,
         });
     }
 
     displayPaymentForm = () => {
         this.setState({ showPaymentForm: true });
+        window.Twilio.Flex.Actions.invokeAction("SetComponentState", { name: "AgentTaskCanvasTabs", state: { selectedTabName: "payment-tab" } });
     };
 
     addEventToState = (newItem) => {
