@@ -34,7 +34,11 @@ export default class PayPlugin extends FlexPlugin {
           runtimeUrl={process.env.REACT_APP_RUNTIME_URL}
         />
       </Tab>,
-      {}
+      {
+        if: (props) => {
+          return props.task?.channelType === "voice";
+        },
+      }
     );
 
     // flex.AgentDesktopView.Panel2.Content.add(

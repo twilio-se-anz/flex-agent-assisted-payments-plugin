@@ -1,5 +1,5 @@
 .component-container {
-    box-shadow: inset 20px -1px 20px rgb(134 134 134 / 25%);
+    /* box-shadow: inset 20px -1px 20px rgb(134 134 134 / 25%); */
     min-height: 300px;
 }
 
@@ -27,7 +27,7 @@ input .payment-form-select {
     border: none;
     background: #64be94;
     color: white;
-    box-shadow: 0px 3px 3px 0px rgb(134 134 134 / 25%);
+    /* box-shadow: 0px 3px 3px 0px rgb(134 134 134 / 25%); */
 }
 
 .payment-form-button[disabled] {
@@ -37,10 +37,10 @@ input .payment-form-select {
 input,
 select {
     font-size: 20px;
-    border-radius: 7px;
+    border-radius: 5px;
     border: 1px solid #bbb;
     padding-left: 10px;
-    box-shadow: 0px 3px 3px 0px rgb(134 134 134 / 25%);
+    /* box-shadow: 0px 3px 3px 0px rgb(134 134 134 / 25%); */
     color: #424242bf;
 }
 
@@ -145,7 +145,7 @@ select {
 }
 
 .payment-form-heading {
-    font-size: 25px;
+    font-size: 20px;
     color: #333;
 }
 
@@ -160,16 +160,16 @@ select {
 
 .input-card {
     position: relative;
-    margin: 40px;
+    /* margin: 40px; */
     padding: 50px;
     display: flex;
     flex-direction: column;
     background: #fff;
     /* border-radius: 10px; */
     /* box-shadow: 0 0px 20px 12px rgb(134 134 134 / 25%); */
-    border-style: solid;
-    border-color: lightgrey;
-    border-width: 1px;
+    /* border-style: solid; */
+    /* border-color: lightgrey; */
+    /* border-width: 1px; */
 }
 
 .payment-input-container {
@@ -183,7 +183,7 @@ select {
 .submit-payment-button {
     width: 100%;
     border-radius: 7px;
-    box-shadow: rgb(134 134 134 / 51%) 0px 3px 3px 0px;
+    /* box-shadow: rgb(134 134 134 / 51%) 0px 3px 3px 0px; */
     margin-top: 10px;
     height: 30px;
     border-radius: 7px;
