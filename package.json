@@ -9,6 +9,7 @@
     "@emotion-icons/fa-solid": "^2.15.0",
     "@emotion/react": "^11.1.5",
     "@material-ui/lab": "^4.0.0-alpha.61",
+    "@snowpak/react-credit-cards": "^1.0.0",
     "@twilio-paste/core": "^16.0.1",
     "@twilio-paste/icons": "^9.3.0",
     "@twilio/flex-plugin-scripts": "^5.2.0",
