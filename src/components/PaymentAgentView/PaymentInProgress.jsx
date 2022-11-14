@@ -1,10 +1,31 @@
 import React from "react";
 import PaymentElement from "./PaymentElement";
-import {GetSymbolForCurrencyISO} from "../../util/CurrencyUtil";
+import { GetSymbolForCurrencyISO } from "../../util/CurrencyUtil";
+import CreditCard from "@snowpak/react-credit-cards";
+import '@snowpak/react-credit-cards/es/styles-compiled.css';
 
 class PaymentInProgress extends React.Component {
     constructor(props) {
         super(props);
+    }
+
+    getFocusField = (field) => {
+        if (!field) {
+            return '';
+        } else if (field === 'expiration-date') {
+            return 'expiry'
+        } else if (field === 'security-code') {
+            return 'cvc'
+        } else if (field === 'payment-card-number') {
+            return 'number'
+        }
+    }
+
+    getIssuer = (number) => {
+        if (number && number.length > 2) {
+            return 'visa'
+        }
+        return null;
     }
 
     render() {
@@ -16,7 +37,7 @@ class PaymentInProgress extends React.Component {
         ) {
             return null;
         }
-
+//"expiration-date" "security-code"
         return (
             <>
                 <div className="input-card">
@@ -26,9 +47,15 @@ class PaymentInProgress extends React.Component {
                             {GetSymbolForCurrencyISO(this.props.currency)} {this.props.chargeAmount}
                         </h1>
                     </div>
-                    <h1 className="payment-form-heading">
-                        Capture Credit Card Information
-                    </h1>
+                    <CreditCard
+                        cvc={this.props.paymentState.SecurityCode || ''}
+                        expiry={this.props.paymentState.ExpirationDate || ''}
+                        focused={this.getFocusField(this.props.captureField)}
+                        name={'john doe'}
+                        number={this.props.paymentState.PaymentCardNumber?.replaceAll('x', '*') || ''}
+                        preview={true}
+                        issuer={this.getIssuer(this.props.paymentState.PaymentCardNumber)}
+                    />
                     <hr />
                     <PaymentElement
                         captureField={this.props.captureField}
