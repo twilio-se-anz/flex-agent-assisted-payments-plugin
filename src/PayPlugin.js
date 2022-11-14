@@ -28,7 +28,7 @@ export default class PayPlugin extends FlexPlugin {
     const options = { sortOrder: -1 };
 
     flex.TaskCanvasTabs.Content.add(
-      <Tab uniqueName="payment-tab" key="payment-tab">
+      <Tab uniqueName="payment-tab" key="payment-tab" label="Pay">
         <PaymentAgentView
           key="payment-component"
           runtimeUrl={process.env.REACT_APP_RUNTIME_URL}

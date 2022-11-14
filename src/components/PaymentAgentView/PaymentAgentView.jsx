@@ -289,7 +289,7 @@ class PaymentAgentView extends React.Component {
 
     return (
       <div className="component-container">
-        <div className="hero-background"></div>
+        {/* <div className="hero-background"></div> */}
         {pageContent}
       </div>
     );
