@@ -1,4 +1,4 @@
-import * as FlexPlugin from 'flex-plugin';
-import PayPlugin from './PayPlugin';
+import * as FlexPlugin from "@twilio/flex-plugin";
+import PayPlugin from "./PayPlugin";
 
 FlexPlugin.loadPlugin(PayPlugin);

@@ -71,7 +71,7 @@ Return to the main plugin directory.
 
 `cd ..` 
 
-Open file payConfig.json and replace the runtime domain with the URL from your Serverless Deployment. Make sure to add the https:// to the front. 
+Copy the `.env.example` file to `.env` and replace the runtime domain with the URL from your Serverless Deployment. Make sure to add the https:// to the front. 
 
 You can also modify your currency settings in this file. Simply provide a list of the currencies needed, in both ISO and Symbol form. This configuration will drive the dropdowns in the UI. 
 

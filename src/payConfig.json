@@ -1,21 +1,20 @@
 {
-    "RUNTIME_URL": "https://aap-backend-3072-dev.twil.io",
-    "CURRENCY_CONFIG":[
-        {
-            "Symbol": "£",
-            "ISO": "gbp"
-        },
-        {
-            "Symbol": "$",
-            "ISO": "usd"
-        },
-        {
-            "Symbol": "€",
-            "ISO": "eur"
-        },
-        {
-            "Symbol": "$",
-            "ISO": "aud"
-        }
-    ]
+  "CURRENCY_CONFIG": [
+    {
+      "Symbol": "£",
+      "ISO": "gbp"
+    },
+    {
+      "Symbol": "$",
+      "ISO": "usd"
+    },
+    {
+      "Symbol": "€",
+      "ISO": "eur"
+    },
+    {
+      "Symbol": "$",
+      "ISO": "aud"
+    }
+  ]
 }
