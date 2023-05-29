@@ -90,11 +90,14 @@ class PaymentAgentView extends React.Component {
 
   subscribeToSync = (token) => {
     console.log(
-      "Subscribing to Sync list for aap:" + this.props.task.attributes.call_sid
+      "Subscribing to Sync list for aap:" +
+        this.props.task.attributes.conference.participants.customer
     );
     var sync = new SyncClient(token);
     sync
-      .list("aap:" + this.props.task.attributes.call_sid)
+      .list(
+        "aap:" + this.props.task.attributes.conference.participants.customer
+      )
       .then((list) => {
         console.log("Successfully opened a List. SID: " + list.sid);
 
@@ -182,7 +185,7 @@ class PaymentAgentView extends React.Component {
 
   requestCapture = (captureField) => {
     var body = {
-      CallSid: this.props.task.attributes.call_sid,
+      CallSid: this.props.task.attributes.conference.participants.customer,
       ConfSid: this.props.task.attributes.conference.sid,
       PaymentSid: this.state.paymentSid,
       Capture: captureField,
@@ -205,7 +208,7 @@ class PaymentAgentView extends React.Component {
     console.log("attempting to process payment via Pay Connector");
 
     var body = {
-      CallSid: this.props.task.attributes.call_sid,
+      CallSid: this.props.task.attributes.conference.participants.customer,
       PaymentSid: this.state.paymentSid,
       Status: "complete",
       IdempotencyKey: ++this.idempotencyKey,

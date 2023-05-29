@@ -1,6 +1,6 @@
 {
   "name": "plugin-pay",
-  "version": "2.0.2",
+  "version": "2.0.5",
   "private": true,
   "scripts": {
     "postinstall": "flex-plugin pre-script-check"
@@ -12,13 +12,14 @@
     "@snowpak/react-credit-cards": "^1.0.0",
     "@twilio-paste/core": "^16.0.1",
     "@twilio-paste/icons": "^9.3.0",
-    "@twilio/flex-plugin-scripts": "^5.2.0",
     "prop-types": "^15.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "twilio-sync": "^3.2.2"
+    "twilio-sync": "^3.2.2",
+    "@twilio/flex-plugin-scripts": "6.0.4"
   },
   "devDependencies": {
-    "@twilio/flex-ui": "2.0.0-beta.3"
+    "@twilio/flex-ui": "2.1.0",
+    "react-test-renderer": "17.0.2"
   }
 }
